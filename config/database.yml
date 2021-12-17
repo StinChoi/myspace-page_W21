@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: starter_project_Myspace_W21_development
+  database: myspace-page_W21development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: starter_project_Myspace_W21_test
+  database: myspace-page_W21test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: starter_project_Myspace_W21_production
+  database: myspace-page_W21production
   username: starter_project_Myspace_W21
-  password: <%= ENV['STARTER_PROJECT_MYSPACE_W21_DATABASE_PASSWORD'] %>
+  password: <%= ENV['myspace-page_W21DATABASE_PASSWORD'] %>
