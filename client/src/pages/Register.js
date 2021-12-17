@@ -24,7 +24,7 @@ const Register = () => {
   }
   return (
     <>
-      <h1>Create User Profile</h1>
+      <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <p>Email</p>
         <input value={email} onChange={(e) => setEmail(e.target.value)} />

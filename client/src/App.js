@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
+import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -11,7 +11,7 @@ import Register from './pages/Register';
 function App() {
   return (
     <Routes>
-      <Route element={<NavBar />}>
+      <Route element={<Layout />}>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/public" element={<Public />} />

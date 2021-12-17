@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { AuthContext } from "../providers/AuthProvider";
 
-const NavBar = () => {
+const Layout = () => {
   let x = useNavigate();
   const { authenticated, handleLogout } = useContext(AuthContext);
   const renderAuthLinks = () => {
@@ -41,7 +41,7 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Layout;
 
 const styles = {
   navbar: {

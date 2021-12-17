@@ -31,13 +31,6 @@ const AuthProvider = (props) => {
       let res = await axios.post("api/auth/sign_in", user);
       setUser(res.data.data);
       // navigate to a certain page when successfully created a new registration
-      // James found this somewhere in headers while inspecting to make logout successful? Try and see if he can touch base on this
-      // let headers = res.headers;
-      // axios.defaults.headers.common["access-token"] = headers["access-token"];
-      // axios.defaults.headers.common["token-type"] = headers["token-type"];
-      // axios.defaults.headers.common["client"] = headers["client"];
-      // axios.defaults.headers.common["expiry"] = headers["expiry"];
-      // axios.defaults.headers.common["uid"] = headers["uid"];
       navigate("/protected");
     } catch (err) {
       console.log(err.response);
@@ -51,11 +44,12 @@ const AuthProvider = (props) => {
   const handleLogout = async (y) => {
     // using axios call to handle logout
     try {
-      let res = await axios.delete("/api/auth/sign_out")
+      // destroy token on backend
+      let res = await axios.delete("api/auth/sign_out")
       console.log(res);
       setUser(null)
       y("/login");
-      // console.log("handleLogout")
+      console.log("handleLogout")
     } catch (err) {
       console.log(err.response);
       alert("Error while Logging Out")
