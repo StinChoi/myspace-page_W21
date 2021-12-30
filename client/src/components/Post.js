@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Card, CardActions, CardContent, CardHeader, Icon, IconButton, Typography } from "@mui/material";
+import { Card, CardActions, CardContent, CardHeader, Icon, IconButton, Typography } from "@mui/material";
 
 const Post = (props) => {
 
@@ -8,11 +8,6 @@ const Post = (props) => {
   return (
     <Card elevation={3} >
       <CardHeader
-        avatar={
-          <Avatar>
-            <Icon>person</Icon>
-          </Avatar>
-        }
         title={user.username}
         subheader={user.name} />
       <CardContent>

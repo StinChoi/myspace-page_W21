@@ -14,7 +14,7 @@ const Public = () => {
 
   return (
     <div>
-      <h1>Public</h1>
+      <h1>MySpace</h1>
       <Button variant="contained" onClick={() => navigate("/login")} >Log In</Button>
     </div>
   );

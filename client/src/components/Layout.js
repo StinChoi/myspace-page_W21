@@ -14,7 +14,7 @@ const Layout = () => {
   );
 };
 
-export default NavBar;
+export default Layout;
 
 // import React, { useContext } from "react";
 // import { Link, Outlet, useNavigate } from "react-router-dom"
