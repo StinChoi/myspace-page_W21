@@ -45,14 +45,14 @@ const Home = () => {
 
   return (
     <HomeDiv>
-      <h1>Welcome to MySpace</h1>
+      <h1>MySpace</h1>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <Typography variant="h3">Home Page</Typography>
+        <Typography variant="h4">Home Page</Typography>
       </div>
-      <Typography sx={{ textAlign: "center" }} variant="h4" gutterBottom>Welcome, {auth.name}</Typography>
+      <Typography sx={{ textAlign: "center" }} variant="h5" gutterBottom>Welcome, {auth.name}</Typography>
       <div>
-        <Paper sx={{ width: "75vw", display: "flex", justifyContent: "flex-end", padding: "20px" }} component="div" elevation={2} >
-          <div style={{ textAlign: "right" }} >
+        <Paper sx={{ width: "70vw", display: "flex", justifyContent: "flex", padding: "10px" }} component="div" elevation={2} >
+          <div style={{ textAlign: "left" }} >
             <Typography variant="h4" component="div" gutterBottom>{auth.username}</Typography>
             <Typography variant="body1" component="div" gutterBottom>{auth.email}</Typography>
           </div>

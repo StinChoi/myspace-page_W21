@@ -29,15 +29,15 @@ const Users = () => {
       return (
         <ListItem secondaryAction={
           <>
-            <label>view</label>
-            <IconButton onClick={() => navigate(`/users/${u.id}`)} edge="end" label="view" >
-              <Icon>visibility</Icon>
+            {/* <label>view</label> */}
+            <IconButton onClick={() => navigate(`/users/${u.id}`)} edge="start" label="view" >
+              <Icon>view</Icon>
             </IconButton>
           </>
         } >
           <ListItemAvatar>
             <Avatar>
-              <Icon>person</Icon>
+              <Icon>U</Icon>
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={u.email} secondary={`username: ${u.username}`} />
@@ -48,8 +48,8 @@ const Users = () => {
 
   return (
     <UsersDiv>
-      <Typography variant="h1" gutterBottom >Users page</Typography>
-      <Typography variant="p" component="div" gutterBottom sx={{ marginBottom: "30px" }} >Find friends and view others' posts</Typography>
+      <Typography variant="h4" gutterBottom >Users Page</Typography>
+      <Typography variant="p" component="div" gutterBottom sx={{ marginBottom: "30px" }} >Find friends and view others posts</Typography>
       <Box sx={{ display: "flex", justifyContent: "center" }} >
         <List sx={{ width: "75vw", bgcolor: "background.paper" }} >
           {renderUsers()}
@@ -60,10 +60,10 @@ const Users = () => {
 };
 
 const UsersDiv = styled.div`
-    padding: 20px;
+    padding: 10px;
     margin: 0px;
     text-align: center;
-    background: #FFFAF9;
+    background: #ebf3f7
 `;
 
 export default Users;
