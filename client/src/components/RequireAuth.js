@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react"
 import { Navigate, Outlet } from "react-router"
 import { AuthContext } from "../providers/AuthProvider"
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 const RequireAuth = () => {
   const [checkingAuthStatus, setCheckingAuthStatus] = useState(true)

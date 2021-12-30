@@ -1,42 +1,50 @@
-import { useContext } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom"
+import { Tab, Tabs } from "@mui/material";
+import React, { useContext } from "react";
+import { Link, matchPath, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../providers/AuthProvider";
 
 const NavBar = () => {
-  let x = useNavigate();
+
   const { authenticated, handleLogout } = useContext(AuthContext);
-  const renderAuthLinks = () => {
-    if (authenticated) {
-      return <button onClick={() => handleLogout(x)}>Logout</button>
+  const navigate = useNavigate();
+
+  const useRouteMatch = (passes) => {
+    const { pathname } = useLocation();
+
+    for (let i = 0; i < passes.length; i += 1) {
+      const pass = passes[i];
+      const possibleMatch = matchPath(pass, pathname);
+      if (possibleMatch !== null) {
+        return possibleMatch;
+      }
     }
+
+    return null;
+  }
+
+  const routeMatch = useRouteMatch(["/", "/public", "/protected", "/login", "/posts", "/users"]);
+  const currentTab = routeMatch?.pass?.path;
+
+  if (!authenticated) {
     return (
-      <>
-        <div>
-          <Link to="/register">Create User Profile</Link>
-        </div>
-        <div>
-          <Link to="/login">Login User Profile</Link>
-        </div>
-      </>
-    );
-  };
-  return (
-    <div>
-      <div styles={styles.navbar}>
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <Link to="/public">Public</Link>
-        </div>
-        <div>
-          <Link to="/protected">User Profile</Link>
-        </div>
-        {renderAuthLinks()}
-        <div style={styles.pageContainer}>
-          <Outlet />
-        </div>
+      <div style={styles.container} >
+        <Tabs value={currentTab}>
+          <Tab label="Public" value="/public" to="/public" component={Link} />
+          <Tab label="Login" value="/login" to="/login" component={Link} />
+        </Tabs>
       </div>
+    )
+  }
+
+  return (
+    <div style={styles.container}>
+      <Tabs value={currentTab}>
+        <Tab label="Home" value="/" to="/" component={Link} />
+        <Tab label="Users" value="/users" to="/users" component={Link} />
+        <Tab label="Posts" value="/posts" to="/posts" component={Link} />
+        <Tab label="Settings" value="/protected" to="/protected" component={Link} />
+        <Tab label="Logout" onClick={() => handleLogout(navigate)} />
+      </Tabs>
     </div>
   );
 };
@@ -44,14 +52,13 @@ const NavBar = () => {
 export default NavBar;
 
 const styles = {
-  navbar: {
+  container: {
     display: 'flex',
     border: '1.5px solid'
   },
-  pageContainer: {
-    maxWidth: '1000px',
-    margin: 'auto',
-    border: '2px solid blue',
-    padding: '15px',
+  link: {
+    textDecoration: "none",
+    margin: "15px",
+    color: "blue",
   }
 }

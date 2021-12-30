@@ -1,0 +1,13 @@
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+        <div>
+          <Link to="/public">Public</Link>
+        </div>
+        <div>
+          <Link to="/protected">User Profile</Link>
+        </div>
+        {renderAuthLinks()}
+        <div style={styles.pageContainer}>
+          <Outlet />
+        </div>

@@ -1,7 +1,13 @@
 import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Box, Icon, Paper } from "@mui/material";
+import styled from "styled-components";
+import NewPost from "../components/NewPost";
+import Post from "../components/Post";
 
 
 const Home = () => {
@@ -10,7 +16,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [myPosts, setMyPosts] = useState(null);
 
-  useEffect (()=>{
+  useEffect(() => {
     getMyPosts();
   }, [])
 
@@ -31,7 +37,7 @@ const Home = () => {
   const renderPosts = () => {
     return myPosts.map((p) => {
       return (
-        <div style={{width: "500px", margin: "20px"}}>
+        <div style={{ width: "500px", margin: "20px" }}>
           {/* <Post user={auth} post={p} /> */}
         </div>
       );
@@ -39,9 +45,21 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <HomeDiv>
       <h1>Welcome to MySpace</h1>
-      {JSON.stringify(auth)}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Typography variant="h3">Home Page</Typography>
+      </div>
+      <Typography sx={{ textAlign: "center" }} variant="h4" gutterBottom>Welcome, {auth.name}</Typography>
+      <div>
+        <Paper sx={{ width: "75vw", display: "flex", justifyContent: "flex-end", padding: "20px" }} component="div" elevation={2} >
+          <div style={{ textAlign: "right" }} >
+            <Typography variant="h4" component="div" gutterBottom>{auth.username}</Typography>
+            <Typography variant="body1" component="div" gutterBottom>{auth.email}</Typography>
+          </div>
+        </Paper>
+      </div>
+      {/* {JSON.stringify(auth)}
       <br />
       <button onClick={auth.handleLogin}>Login</button>
       <br />
@@ -49,9 +67,20 @@ const Home = () => {
       <br />
       <button onClick={() => navigate("/public")}>Public Page</button>
       <br />
-      <Link to='/protected'>Protected</Link>
-    </div>
+      <Link to='/protected'>Protected</Link> */}
+      <NewPost addPost={addPost} />
+      {myPosts && renderPosts()}
+    </HomeDiv>
   );
 };
 
 export default Home;
+
+const HomeDiv = styled.div`
+  padding: 10px;
+  margin: 25px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
