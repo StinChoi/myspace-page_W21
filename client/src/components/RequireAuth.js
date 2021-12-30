@@ -32,11 +32,26 @@ const RequireAuth = () => {
   };
 
   if (checkingAuthStatus) {
-    return <p>Checked if Logged in or Logged out</p>
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center" }} >
+        <CircularProgress />
+        <Box sx={{
+          top: 0,
+          right: 42,
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <Typography variant="caption" component="div" >Loading</Typography>
+
+        </Box>
+      </Box>
+    )
   }
   // Checking to see if not auth
   if (!auth.authenticated) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/public" />;
   }
 
   return (

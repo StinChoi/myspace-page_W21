@@ -8,12 +8,12 @@ const NavBar = () => {
   const { authenticated, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const useRouteMatch = (passes) => {
+  const useRouteMatch = (patterns) => {
     const { pathname } = useLocation();
 
-    for (let i = 0; i < passes.length; i += 1) {
-      const pass = passes[i];
-      const possibleMatch = matchPath(pass, pathname);
+    for (let i = 0; i < patterns.length; i += 1) {
+      const pattern = patterns[i];
+      const possibleMatch = matchPath(pattern, pathname);
       if (possibleMatch !== null) {
         return possibleMatch;
       }
@@ -23,7 +23,7 @@ const NavBar = () => {
   }
 
   const routeMatch = useRouteMatch(["/", "/public", "/protected", "/login", "/posts", "/users"]);
-  const currentTab = routeMatch?.pass?.path;
+  const currentTab = routeMatch?.pattern?.path;
 
   if (!authenticated) {
     return (
@@ -53,8 +53,10 @@ export default NavBar;
 
 const styles = {
   container: {
-    display: 'flex',
-    border: '1.5px solid'
+    margin: "0px",
+    padding: "10px",
+    textAlign: "center",
+    // border: '1.5px solid'
   },
   link: {
     textDecoration: "none",

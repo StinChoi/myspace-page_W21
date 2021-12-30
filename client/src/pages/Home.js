@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { Box, Icon, Paper } from "@mui/material";
 import styled from "styled-components";
 import NewPost from "../components/NewPost";
@@ -38,7 +37,7 @@ const Home = () => {
     return myPosts.map((p) => {
       return (
         <div style={{ width: "500px", margin: "20px" }}>
-          {/* <Post user={auth} post={p} /> */}
+          <Post user={auth} post={p} />
         </div>
       );
     });
