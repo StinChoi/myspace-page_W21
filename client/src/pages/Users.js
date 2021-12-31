@@ -31,13 +31,13 @@ const Users = () => {
           <>
             {/* <label>view</label> */}
             <IconButton onClick={() => navigate(`/users/${u.id}`)} edge="start" label="view" >
-              <Icon>view</Icon>
+              <Icon>visibility</Icon>
             </IconButton>
           </>
         } >
           <ListItemAvatar>
             <Avatar>
-              <Icon>U</Icon>
+              <Icon>person</Icon>
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={u.email} secondary={`username: ${u.username}`} />

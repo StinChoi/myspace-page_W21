@@ -280,7 +280,7 @@
 
 "@mui/material@^5.2.6":
   version "5.2.6"
-  resolved "https://registry.npmjs.org/@mui/material/-/material-5.2.6.tgz"
+  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.2.6.tgz#fda165759281fe7d6f0ec2744a255f283e17b7aa"
   integrity sha512-yF2bRqyJMo6bYXT7TPA9IU/XLaXHi47Xvmj8duQa5ha3bCpFMXLfGoZcAUl6ZDjjGEz1nCFS+c1qx219xD/aeQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
@@ -303,6 +303,13 @@
   dependencies:
     "@babel/runtime" "^7.16.3"
     "@mui/utils" "^5.2.3"
+    prop-types "^15.7.2"
+
+"@mui/styled-engine-sc@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@mui/styled-engine-sc/-/styled-engine-sc-5.1.0.tgz#672fcc97192a7286cf306c92e71bad84eb0885a1"
+  integrity sha512-5ZELhN5OAU65CDOutaB8WCo/tVJY0Sc93LnS+dZovCID4kzjvCtqbQZIbvutc3nvDl1GFukhMkG8oaGWLAsbkw==
+  dependencies:
     prop-types "^15.7.2"
 
 "@mui/styled-engine@^5.2.6":

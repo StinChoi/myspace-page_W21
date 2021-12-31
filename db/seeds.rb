@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-u1 = User.create(email: 't@test.com', password:1234567, name: "Timmy Turner", username: "testing123",)
+u1 = User.create(email: 't@test.com', password:1234567, name: "Timmy Turner", username: "Mellow Fellow",)
 
 u1.posts.create(content: "Aloha to me MySpace Page, here's record of my first post", likes: 0)
 u1.posts.create(content: "What would you tell Joe Biren right now?", likes: 0)

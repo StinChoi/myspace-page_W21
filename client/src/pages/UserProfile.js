@@ -59,8 +59,8 @@ const UserProfile = () => {
   return (
     <ProfileDiv>
       <Typography variant="h1" >{user.username}</Typography>
-      <Typography variant="p" component="div" gutterBottom >Info on this user</Typography>
-      <Paper sx={{ width: "75vw", display: "flex", justifyContent: "flex-end", padding: "20px" }} component="div" elevation={3}>
+      <Typography variant="p" component="div" gutterBottom >Info on User</Typography>
+      <Paper sx={{ width: "75vw", display: "flex", justifyContent: "flex-start", padding: "20px" }} component="div" elevation={3}>
         <div>
           <Typography variant="h5" component="div" gutterBottom >Name: {user.name}</Typography>
           <Typography variant="body1" component="div" gutterBottom >Email: {user.email}</Typography>
